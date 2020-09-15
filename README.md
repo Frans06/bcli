@@ -1,24 +1,19 @@
 
-# bagcli
-
-Brot and Games CLI
-
-This repository is part of a blog post about building a custom CLI with Bash:
-
-https://medium.com/@brotandgames/build-a-custom-cli-with-bash-e3ce60cfb9a4
-
-It is meant to be a blueprint or skeleton for a Bash compliant CLI.
+# bcli
+Inspired on https://github.com/brotandgames.
 
 ## Usage
+Get The Repo inside ${project}/commands
 
 ````
-git clone https://github.com/brotandgames/bagcli
-cd bagcli
-./bagcli help
+git clone https://github.com/Frans06/bcli .
+./commands/bcli init
 ````
+
+## Develop
+Get Project
 
 ## Maintainer
+Francito
 
-Brot and Games
-
-https://github.com/brotandgames
+https://github.com/Frans06
