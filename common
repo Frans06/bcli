@@ -4,3 +4,20 @@ cli_log() {
   timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
   echo "== $script_name $timestamp $1"
 }
+
+cli_help() {
+  echo "
+$1
+$PROJECT_NAME
+Version: $PROJECT_VERSION
+URL: $REPO_PATH
+Usage: $1 [command]
+
+Commands:
+  deploy    Deploy
+  *         Help
+"
+
+  exit 1
+}
+

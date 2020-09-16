@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -e
+export BCLI_WORKDIR=$(cd $(dirname $0) && pwd)
+
+# shellcheck source=common
+. "$BCLI_WORKDIR/common"
+
+
+cli_log "Exporting config ..."
+[ ! -f "$BCLI_WORKDIR/config" ] \
+  && echo "ERROR: No $BCLI_WORKDIR/config file found. " \
+  && echo "cp $BCLI_WORKDIR/config.template $BCLI_WORKDIR/config and adjust." \
+  && exit 1
+
+export $(cat "$BCLI_WORKDIR/config" | xargs)
+
+case "$1" in
+  deploy|d)
+    "$BCLI_WORKDIR/commands/deploy" "$2" | tee -ia "$BCLI_WORKDIR/logs/deploy_${2}.log"
+    ;;
+  *)
+    cli_help ${0##*/}
+
+    ;;
+esac
